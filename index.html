@@ -1,22 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="bioApp">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexander's Space Quest</title>
+    <title>Alexander's Space</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>Hello world!</h1>
+    <header>
+        <!-- <nav>
+            <h1>Alexander Inman</h1>
+        </nav> -->
+    </header>
+
+    <main class="page-content" ng-controller="templatesController">
+        <div class="bg-img-1 d-flex flex-column justify-content-center align-items-center">
+            <h1 class="animate__animated animate__fadeInDown fadeOnScroll" style="color: white;">Alexander Inman</h1>
+            <ul class="list-group animate__animated animate__fadeInUp top-nav-list d-flex flex-row justify-content-around align-items-center fadeOnScroll">
+                <li class="list-group-item">Endeavour</li>
+                <li class="list-group-item">Education</li>
+                <li class="list-group-item">Experience</li>
+            </ul>
+            <!-- <div class="img-cred">Photo credit: Pablo Escobar</div> -->
+        </div>
+        <div id="intro" class="d-flex m-5" style="height: 1000px; background-color: aqua;"></div>
+        <div class="bg-img-2"></div>
+        <div class="d-flex" style="height: 1000px;"></div>
+        <div class="bg-img-3"></div>
+        <div class="d-flex" style="height: 1000px;"></div>
+        <div class="bg-img-1"></div>
+    </main>
+
+    <footer class="w-100">
+        <a href="#intro"  class="d-flex flex-column justify-content-around align-items-center animate__animated animate__fadeInDown fadeOnScroll mt-5">
+            <h5>Scroll down</h5>
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -26,6 +58,24 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <script>
+        // $(window).scroll(function () {
+        //     // $('.fadeOnScroll').css('opacity', 1 - $(window).scrollTop() / 250);
+        //     $('.fadeOnScroll').removeClass('animate__fadeInDown').addClass('animate__fadeOutUp');
+        // });
+
+        var lastScrollTop = 0;
+        $(window).scroll(function (event) {
+            var st = $(this).scrollTop();
+            if (st > lastScrollTop) {
+                $('.fadeOnScroll').removeClass('animate__fadeInDown animate__fadeInUp').addClass('animate__fadeOutUp');
+            } else {
+                $('.fadeOnScroll').removeClass('animate__fadeOutUp').addClass('animate__fadeInDown');
+            }
+            lastScrollTop = st;
+        });
     </script>
 </body>
 
